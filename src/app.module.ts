@@ -11,7 +11,7 @@ import { AppService } from '@/app.service';
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [{ provide: 'LOGGER', useClass: AppService }],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
